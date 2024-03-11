@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Game Template</title>
+    <style>
+        body, html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            background-image: url('spaceinvaders.png'); /* if the image is in the same directory */
+            background-size: 60%; /* Cover the entire page */
+            background-position: center; /* Center the background image */
+        }
+        #startGameButton {
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            background: transparent; /* Button background */
+            color: #000; /* Button text color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Optional: round corners */
+            opacity: 0.8; /* Optional: slightly transparent */
+        }
+    </style>
+    
+</head>
+<body>
+    <button id="startGameButton" onclick="startGame()">Start Game</button>
+    <script>
+        function startGame() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
