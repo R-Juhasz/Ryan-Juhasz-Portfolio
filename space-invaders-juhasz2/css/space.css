@@ -1,0 +1,369 @@
+/****************************************
+ *            GENERAL STYLING
+ ****************************************/
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Prevent scrollbars during gameplay */
+}
+
+/* Title */
+h1 {
+  margin: 10px 0;
+  font-size: 3rem;
+  color: lime;
+}
+
+/****************************************
+ *            HOME SCREEN
+ ****************************************/
+#home-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('../images/galactic.png') no-repeat center center/cover; /* Updated path */
+  color: white;
+  padding: 20px; /* Added padding for better spacing */
+  position: relative; /* Allows positioning of child elements like high scores */
+  padding-top: 130px;
+}
+
+#name-input-area {
+  margin-bottom: 20px;
+}
+
+#name-input-area label {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  font-weight: bold; /* Made the label text bold */
+}
+
+#player-name {
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+#start-game {
+  margin: 10px;
+  padding: 2vw 5vw; /* Changed to responsive units */
+  font-size: 1.5rem;
+  background-color: black; /* Changed background to black */
+  color: white; /* Changed text color to white */
+  border: 1px solid white; /* Added a slim white border */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#start-game:hover {
+  background-color: #333; /* Slightly lighter black on hover */
+}
+
+/****************************************
+ *            HIGH SCORES
+ ****************************************/
+#high-scores {
+  position: absolute; /* Positioned relative to the home-screen */
+  top: 20px; /* Top-right corner */
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 8px;
+  text-align: left;
+  width: 200px;
+}
+
+#high-scores h2 {
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+#scores-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#scores-list li {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: white;
+}
+
+/* Highlight user's position */
+.user-score {
+  font-weight: bold;
+  color: lime;
+}
+
+/****************************************
+ *            GAME CONTAINER
+ ****************************************/
+#game-container {
+  position: relative;
+  width: 90vw; /* Changed from fixed 600px to responsive */
+  max-width: 600px;
+  height: 90vw; /* Changed from fixed 600px to responsive */
+  max-height: 600px;
+  margin: 20px auto; /* Added margin for spacing */
+  background-color: black;
+  border: 2px solid white;
+  overflow: hidden;
+}
+
+/* Ship */
+#ship {
+  position: absolute;
+  width: 8vw; /* Responsive width */
+  max-width: 50px;
+  height: auto;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Alien */
+.alien {
+  position: absolute;
+  width: 7.8125vw; /* 40px / 512px * 100% ≈ 7.8125vw */
+  max-width: 40px;
+  height: 7.8125vw;
+  max-height: 40px;
+}
+
+/* Boss Alien */
+.bossAlien {
+  width: 23.4375vw; /* 120px / 512px * 100% ≈ 23.4375vw */
+  max-width: 120px;
+  height: 23.4375vw;
+  max-height: 120px;
+  filter: hue-rotate(180deg) brightness(1.2);
+}
+
+/* Building */
+.building {
+  position: absolute;
+  width: 7.8125vw; /* 40px / 512px * 100% ≈ 7.8125vw */
+  max-width: 40px;
+  height: 7.8125vw;
+  max-height: 40px;
+  background-color: #666; /* Default color */
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+/****************************************
+ *            LIFE BAR
+ ****************************************/
+#life-bar-container {
+  width: 90vw; /* Changed from fixed 600px to responsive */
+  max-width: 600px;
+  height: 2vh; /* Changed from fixed 20px to responsive */
+  max-height: 20px;
+  background-color: gray;
+  border: 2px solid white;
+  margin: 10px auto;
+  position: relative;
+}
+
+/* Life Bar */
+#life-bar {
+  width: 100%;
+  height: 100%;
+  background-color: lime;
+  transition: width 0.2s ease;
+}
+
+/****************************************
+ *            SCOREBOARD
+ ****************************************/
+#scoreboard {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+/****************************************
+ *            GAME OVER
+ ****************************************/
+#game-over {
+  display: none;
+  font-size: 4vw; /* Responsive font size */
+  max-font-size: 40px;
+  color: red;
+  margin-top: 20px;
+}
+
+/****************************************
+ *            BULLETS
+ ****************************************/
+/* Player Bullet */
+.bullet {
+  position: absolute;
+  width: 1.171875vw; /* 6px / 512px * 100% ≈ 1.171875vw */
+  max-width: 6px;
+  height: 3.90625vw; /* 20px / 512px * 100% ≈ 3.90625vw */
+  max-height: 20px;
+  background-color: white;
+}
+
+/* Enemy Bullet */
+.enemy-bullet {
+  position: absolute;
+  width: 1.171875vw; /* 6px / 512px * 100% ≈ 1.171875vw */
+  max-width: 6px;
+  height: 3.90625vw; /* 20px / 512px * 100% ≈ 3.90625vw */
+  max-height: 20px;
+  background-color: red;
+}
+
+/* Boss Bullet */
+.boss-bullet {
+  position: absolute;
+  width: 1.953125vw; /* 10px / 512px * 100% ≈ 1.953125vw */
+  max-width: 10px;
+  height: 4.8828125vw; /* 25px / 512px * 100% ≈ 4.8828125vw */
+  max-height: 25px;
+  background-color: orange;
+  border-radius: 3px;
+}
+
+/****************************************
+ *            MOBILE CONTROLS
+ ****************************************/
+#mobile-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 1000; /* Ensure controls are above game elements */
+}
+
+.control-btn {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 50%;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.control-btn:active {
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(0.95);
+}
+
+/****************************************
+ *            RESPONSIVE ADJUSTMENTS
+ ****************************************/
+@media (max-width: 800px) {
+  /* Adjust game container for medium screens */
+  #game-container {
+    width: 95vw;
+    height: 95vw;
+    max-width: 500px;
+    max-height: 500px;
+  }
+
+  /* Adjust ship size */
+  #ship {
+    width: 7vw;
+    max-width: 40px;
+  }
+
+  /* Adjust alien size */
+  .alien {
+    width: 6vw;
+    height: 6vw;
+    max-width: 35px;
+    max-height: 35px;
+  }
+
+  /* Adjust boss alien size */
+  .bossAlien {
+    width: 20vw;
+    height: 20vw;
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  /* Adjust game over text size */
+  #game-over {
+    font-size: 5vw;
+    max-font-size: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Adjust mobile controls size on smaller screens */
+  .control-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  /* Adjust game container padding */
+  #home-screen {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 400px) {
+  /* Further adjust mobile controls on very small screens */
+  .control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  /* Adjust game container height */
+  #game-container {
+    height: 80vw;
+    max-height: 400px;
+  }
+
+  /* Adjust ship size */
+  #ship {
+    width: 10vw;
+    max-width: 40px;
+  }
+
+  /* Adjust alien size */
+  .alien {
+    width: 5vw;
+    height: 5vw;
+    max-width: 30px;
+    max-height: 30px;
+  }
+
+  /* Adjust boss alien size */
+  .bossAlien {
+    width: 18vw;
+    height: 18vw;
+    max-width: 90px;
+    max-height: 90px;
+  }
+
+  /* Adjust game over text size */
+  #game-over {
+    font-size: 6vw;
+    max-font-size: 30px;
+  }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Invaders with High Scores in Top-Right</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="css/space.css" />
+
+    <!-- Link to JS -->
+    <script src="javascript/space.js" defer></script>
+</head>
+<body>
+<!-- Home Screen -->
+<div id="home-screen">
+    <div id="high-scores">
+        <h2>High Scores</h2>
+        <ul id="scores-list"></ul>
+    </div>
+
+    <!-- Start Game Button -->
+    <button id="start-game">Start Game</button>
+
+    <!-- Name Input Area -->
+    <div id="name-input-area">
+        <label for="player-name">Enter your name:</label>
+        <input type="text" id="player-name" placeholder="Your name" />
+    </div>
+</div>
+
+<!-- Game Screen -->
+<div id="game-container" style="display: none;">
+    <!-- Player -->
+    <img id="ship" src="images/player.png" alt="Player Ship" />
+
+    <!-- Game Over -->
+    <div id="game-over">GAME OVER</div>
+</div>
+
+<!-- Life Bar -->
+<div id="life-bar-container">
+    <div id="life-bar"></div>
+</div>
+
+<!-- Score & Level -->
+<div id="scoreboard">
+    <span id="score">Score: 0</span> |
+    <span id="level">Level: 1</span> |
+    <span id="lives">Lives: 3</span>
+</div>
+
+<!-- Mobile Controls -->
+<div id="mobile-controls">
+    <button id="left-btn" class="control-btn">←</button>
+    <button id="shoot-btn" class="control-btn">•</button>
+    <button id="right-btn" class="control-btn">→</button>
+</div>
+</body>
+</html>
